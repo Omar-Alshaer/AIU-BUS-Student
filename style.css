@@ -1,0 +1,466 @@
+/* Color Variables */
+:root {
+  --primary-color: #bb2125;
+  --primary-hover: #b91c1c;
+  --secondary-color: #1e40af;
+  --secondary-hover: #1e3a8a;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #dc2626;
+  --light-bg: #0f172a;
+  --light-surface: #002147;
+  --light-border: #334155;
+  --dark-surface: #1a2d4d;
+  --text-light: #f1f5f9;
+  --text-muted: #94a3b8;
+}
+
+
+body {
+  background: var(--light-bg);
+  color: var(--text-light);
+  font-family: 'Cairo', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+html {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.site-header {
+  width: 100%;
+  background: var(--light-surface);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border-bottom: 2px solid var(--light-border);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.08);
+  min-height: 120px;
+}
+
+.site-logo {
+  width: 100vw;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1rem 2rem 1rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+#searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--light-border);
+  border-radius: 8px;
+  background: var(--dark-surface);
+  color: var(--text-light);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  transition: border 0.2s;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+#searchInput:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.student-card {
+  background: var(--light-surface);
+  border: 1px solid var(--light-border);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.08);
+  padding: 1.5rem 1rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+
+.student-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 16px rgba(187, 33, 37, 0.12);
+}
+
+.student-photo {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--primary-color);
+  margin-bottom: 1rem;
+  background: var(--dark-surface);
+}
+
+.student-info {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.student-info p {
+  margin: 0.25rem 0;
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.student-info .label {
+  color: var(--text-muted);
+  font-size: 0.95em;
+  margin-left: 0.5em;
+}
+
+.card-actions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  background: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  border-radius: 8px;
+  padding: 0.6em 1.5em;
+  font-size: 1.05em;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+
+.btn:hover {
+  background: var(--primary-hover);
+}
+
+@media (max-width: 900px) {
+  .container {
+    padding: 1rem 0.5rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .site-logo {
+    width: 100vw;
+    max-width: 100vw;
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  #searchInput {
+    width: 100%;
+    padding: 0.5rem 0.2rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+  }
+
+  .container {
+    padding: 0.2rem 0.01rem;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .student-card.simplified {
+    padding: 0.3rem 0.01rem;
+    border-radius: 8px;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .student-card.simplified .student-photo {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 0.2rem;
+  }
+
+  .student-card.simplified .student-info p {
+    font-size: 0.9rem;
+  }
+
+  .modal-content {
+    padding: 0.3rem 0.01rem 0.3rem 0.01rem;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .modal-photo {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 0.2rem;
+  }
+
+  .modal-receipt {
+    max-width: 95vw;
+    width: auto;
+    max-height: 28vh;
+    margin-top: 0.2rem;
+    object-fit: contain;
+    display: block;
+    box-sizing: border-box;
+  }
+}
+
+.student-card .details-btn {
+  background:var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  border-radius: 10px;
+  padding: 0.7em 1em;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.7em;
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.13);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.03em;
+}
+
+.student-card .details-btn:hover {
+  background:var(--secondary-color);
+  transform: scale(1.07);
+  box-shadow: 0 4px 16px rgba(187, 33, 37, 0.18);
+}
+
+.student-card.simplified {
+  cursor: pointer;
+  padding: 1.2rem 0.7rem;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--light-surface) 80%, var(--dark-surface) 100%);
+  border: 2px solid var(--light-border);
+  box-shadow: 0 6px 24px rgba(30, 64, 175, 0.13);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.student-card.simplified:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 32px rgba(187, 33, 37, 0.18);
+  background: linear-gradient(135deg, var(--dark-surface) 70%, var(--primary-color) 100%);
+}
+
+.student-card.simplified .student-photo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  border: 3px solid var(--primary-color);
+  object-fit: cover;
+  background: var(--dark-surface);
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.08);
+}
+
+.student-card.simplified .student-info {
+  width: 100%;
+  text-align: center;
+}
+
+.student-card.simplified .student-info p {
+  margin: 0.3rem 0;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+}
+
+.student-card.simplified .label {
+  color: var(--primary-color);
+  font-size: 1.15em;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .student-card.simplified {
+    padding: 0.7rem 0.2rem;
+    border-radius: 10px;
+  }
+
+  .student-card.simplified .student-photo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.5rem;
+  }
+
+  .student-card.simplified .student-info p {
+    font-size: 0.98rem;
+  }
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--light-surface);
+  border-radius: 16px;
+  box-shadow: 0 6px 32px rgba(30, 64, 175, 0.18);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  max-width: 420px;
+  width: 90vw;
+  color: var(--text-light);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 2rem;
+  color: var(--danger-color);
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.modal-photo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--primary-color);
+  margin-bottom: 1.2rem;
+  background: var(--dark-surface);
+}
+
+.modal-info {
+  width: 100%;
+  text-align: right;
+  margin-bottom: 1.2rem;
+}
+
+.modal-info p {
+  margin: 0.35rem 0;
+  color: var(--text-light);
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+}
+
+.modal-info .icon {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  margin-left: 0.5em;
+  margin-right: 0.2em;
+  vertical-align: middle;
+  opacity: 0.85;
+}
+
+.modal-info .paid {
+  color: var(--success-color);
+  font-weight: bold;
+}
+
+.modal-receipt {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 8px;
+  margin-top: 1.2rem;
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.08);
+  background: var(--dark-surface);
+  object-fit: contain;
+  display: block;
+  max-height: 40vh;
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 0.5rem 0.1rem 0.5rem 0.1rem;
+    max-width: 100vw;
+    width: 100vw;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow-x: auto;
+  }
+
+  .modal-photo {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.3rem;
+  }
+
+  .modal-receipt {
+    max-width: 95vw;
+    width: auto;
+    max-height: 30vh;
+    margin-top: 0.5rem;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+.site-header {
+  width: 100vw;
+  overflow: hidden;
+}
+
+.site-logo {
+  width: 100vw;
+  max-width: 100vw;
+  min-width: 0;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  margin: 0;
+}
