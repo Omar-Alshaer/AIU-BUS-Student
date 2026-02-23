@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <p><span class="label">${student.fullName}</span></p>
           <p><span class="label">${student.studentId}</span></p>
           <p><span class="label">${student.route || student.routeCode}</span></p>
+            <p><span class="label">الهاتف:</span> ${student.phoneNumber}</p>
           <span class="badge">${student.subscriptionType}</span>
         </div>
         <button class="details-btn">عرض التفاصيل</button>
